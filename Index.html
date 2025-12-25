@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechVision - Innovative Solutions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: slideDown 0.8s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .services h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 4px solid #667eea;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin: 1rem 0;
+            color: #667eea;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* About Section */
+        .about {
+            background: #f8f9fa;
+            padding: 4rem 2rem;
+        }
+
+        .about-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .about p {
+            color: #666;
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .about-image {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            height: 300px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 4rem 2rem;
+            text-align: center;
+            background: white;
+        }
+
+        .contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #333;
+        }
+
+        .contact-info {
+            max-width: 800px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-item {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+
+        .contact-item h3 {
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Power BI report container */
+        .report-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+        }
+
+        /* Report gallery: mobile (1 column) -> desktop (2x2 grid) */
+        .report-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        /* On wider screens show 2 columns (2x2 gallery for 4 items) */
+        @media (min-width: 900px) {
+            .report-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .report-card {
+            background: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .report-card .report-frame {
+            width: 100%;
+            height: 360px;
+            border: 0;
+            display: block;
+        }
+
+        .report-card h4 {
+            padding: 0.75rem 1rem;
+            margin: 0;
+            font-size: 1rem;
+            color: #333;
+            background: #fafafa;
+        }
+
+        @media (max-width: 768px) {
+            .report-card .report-frame {
+                height: 220px;
+            }
+        }
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        footer p {
+            margin: 0.5rem 0;
+        }
+
+        /* Animations */
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header>
+        <nav>
+            <a href="#" class="logo">TechVision</a>
+            <ul>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#analytics">Analytics</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to TechVision</h1>
+            <p>Transforming ideas into innovative digital solutions</p>
+            <button class="btn">Get Started</button>
+        </div>
+    </section>
+
+    <!-- Analytics Section -->
+    <section class="analytics" id="analytics">
+        <h2>Analytics</h2>
+        <div class="report-container">
+            <p style="color:#666; margin-bottom:1rem;">Below are sample reports — replace each iframe `src` with your Power BI publish/embed URL.</p>
+
+            <div class="report-grid">
+                <div class="report-card">
+                    <iframe class="report-frame" title="Marsh Sales Overview" src="https://app.powerbi.com/view?r=eyJrIjoiODFiM2UyNTMtZWUxYi00Yzg0LTgxODMtYzM2MWQ1NDQxMDhhIiwidCI6IjhkNjYxYTdkLTkwMzUtNDFjNC04ZWYwLWQ3OGJiZmY2M2ExOCJ9" allowFullScreen="true"></iframe>
+                    <h4>Marsh Sales Overview</h4>
+                </div>
+
+                <div class="report-card">
+                    <iframe class="report-frame" title="Marketing Performance" src="https://app.powerbi.com/view?r=eyJrIjoiYzliMWRmODYtMGRlZC00ODRiLWE1ZjEtYTE0YzkxZDFiOTU1IiwidCI6IjhkNjYxYTdkLTkwMzUtNDFjNC04ZWYwLWQ3OGJiZmY2M2ExOCJ9" allowFullScreen="true"></iframe>
+                    <h4>Marketing Performance</h4>
+                </div>
+
+                <div class="report-card">
+                    <iframe class="report-frame" title="Operations Dashboard" src="https://app.powerbi.com/view?r=eyJrIjoiYjI4YWRkNjktYWI4Yy00YWVmLTg5YWEtNDJkNzE4ZTRlMzUyIiwidCI6IjhkNjYxYTdkLTkwMzUtNDFjNC04ZWYwLWQ3OGJiZmY2M2ExOCJ9" allowFullScreen="true"></iframe>
+                    <h4>Operations Dashboard</h4>
+                </div>
+
+                <div class="report-card">
+                    <iframe class="report-frame" title="Executive Summary" src="https://app.powerbi.com/reportEmbed?reportId=68f164a4-2c24-4241-957a-4a9c39c8555b&autoAuth=true&ctid=8d661a7d-9035-41c4-8ef0-d78bbff63a18" allowFullScreen="true"></iframe>
+                    <h4>Executive Summary</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <h2>Our Services</h2>
+        <div class="service-grid">
+            <div class="service-card">
+                <h3>Web Development</h3>
+                <p>Create modern, responsive websites that engage your audience and drive results.</p>
+            </div>
+            <div class="service-card">
+                <h3>Mobile Apps</h3>
+                <p>Build powerful mobile applications for iOS and Android platforms.</p>
+            </div>
+            <div class="service-card">
+                <h3>Cloud Solutions</h3>
+                <p>Scalable cloud infrastructure and services for your business needs.</p>
+            </div>
+            <div class="service-card">
+                <h3>UI/UX Design</h3>
+                <p>Beautiful and intuitive designs that enhance user experience.</p>
+            </div>
+            <div class="service-card">
+                <h3>Consulting</h3>
+                <p>Expert guidance to transform your digital strategy and operations.</p>
+            </div>
+            <div class="service-card">
+                <h3>Support & Maintenance</h3>
+                <p>24/7 technical support to keep your systems running smoothly.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="about-content">
+            <div>
+                <h2>About Us</h2>
+                <p>TechVision is a leading technology company dedicated to delivering cutting-edge solutions for businesses worldwide.</p>
+                <p>With over 50+ talented professionals, we've successfully completed 200+ projects across various industries, helping organizations achieve their digital transformation goals.</p>
+                <p>Our mission is to empower businesses through innovative technology and exceptional service.</p>
+            </div>
+            <div class="about-image">🚀</div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2>Get In Touch</h2>
+        <div class="contact-info">
+            <div class="contact-item">
+                <h3>Email</h3>
+                <p>info@techvision.com</p>
+            </div>
+            <div class="contact-item">
+                <h3>Phone</h3>
+                <p>+1 (555) 123-4567</p>
+            </div>
+            <div class="contact-item">
+                <h3>Location</h3>
+                <p>San Francisco, CA</p>
+            </div>
+        </div>
+        <button class="btn">Contact Us</button>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 TechVision. All rights reserved.</p>
+        <p>Follow us on social media for updates and news.</p>
+    </footer>
+</body>
+</html>
